@@ -36,6 +36,8 @@ namespace Calculadora.Controllers
         [HttpPost]
         public ActionResult Calcular([FromBody] RequestViewModel request)
         {
+        
+            //Debemos usar el bloque try / catch para manejar excepciones.
             var service = _calculatorServices.Where(c => c.CodigoOperacao == request.Operacao) ?? throw new ArgumentException("Service not found");
 
             var response = service.Execute(request);
@@ -59,7 +61,8 @@ namespace Calculadora.Controllers
                 FileDownloadName = fileName
             };
         }
-
+        
+        //Debemos usar el bloque try / catch para manejar excepciones.
         private static byte[] GetFile()
         {
             var sb = new StringBuilder();
@@ -93,7 +96,6 @@ namespace Calculadora.Controllers
         {
             return ((TitleToExport)field.GetCustomAttributes(typeof(TitleToExport), true).First());
         }
-
 
      public static void fibonacci()  
       {  
