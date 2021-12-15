@@ -2,7 +2,6 @@ using Calculadora.Services;
 using Calculadora.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,10 +23,10 @@ namespace Calculadora
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<ICalculatorService, SomaService>();
-            services.AddTransient<ICalculatorService, SubtracaoService>();
-            services.AddTransient<ICalculatorService, MultiplicacaoService>();
-            services.AddTransient<ICalculatorService, DivisaoService>();
+            services.AddTransient<ICalculatorService, SumService>();
+            services.AddTransient<ICalculatorService, subtractionService>();
+            services.AddTransient<ICalculatorService, MultiplicationService>();
+            services.AddTransient<ICalculatorService, DivisionService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,6 +8,7 @@ using Calculadora.Notations;
 using Calculadora.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 
 namespace Calculadora.Controllers
 {
@@ -37,8 +36,8 @@ namespace Calculadora.Controllers
         public ActionResult Calcular([FromBody] RequestViewModel request)
         {
             var service = _calculatorServices.Where(c => c.CodigoOperacao == request.Operacao) ?? throw new ArgumentException("Service not found");
-
-            var response = service.Execute(request);
+            
+            var response = service.FirstOrDefault().Execute(request);
 
             var historico = new HistoricoBaseViewModel(request, response);
 

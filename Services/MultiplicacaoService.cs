@@ -3,7 +3,7 @@ using Calculadora.Services.Interfaces;
 
 namespace Calculadora.Services
 {
-	public sealed class MultiplicacaoService : ICalculatorService
+	public sealed class multiplicationService : ICalculatorService
 	{
 		public ECodigoOperacao CodigoOperacao => ECodigoOperacao.Multiplicacao;
 
