@@ -35,7 +35,7 @@ namespace Calculadora.Controllers
         public IEnumerable<HistoricoBaseViewModel> Get() => historicoList;
 
         /// <summary>
-        /// Ningno de los métodos tiene comentario. Adicional la línea 47 posee error.
+        /// Ningún método tiene comentario. Adicional la línea 47 posee error. Adicional se debería estandarizar los nombres de todas las implementaciones.
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

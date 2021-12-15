@@ -560,11 +560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\ejercicio-code-review-net-core\\Calculadora.csproj",
+      "projectUniqueName": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\Fork\\ejercicio-code-review-net-core\\Calculadora.csproj",
       "projectName": "Calculadora",
-      "projectPath": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\ejercicio-code-review-net-core\\Calculadora.csproj",
+      "projectPath": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\Fork\\ejercicio-code-review-net-core\\Calculadora.csproj",
       "packagesPath": "C:\\Users\\LUCIFHER\\.nuget\\packages\\",
-      "outputPath": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\ejercicio-code-review-net-core\\obj\\",
+      "outputPath": "D:\\PROYECTOS\\PYR CENTRO DIGITAL\\Fork\\ejercicio-code-review-net-core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
