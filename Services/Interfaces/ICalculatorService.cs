@@ -2,10 +2,10 @@
 
 namespace Calculadora.Services.Interfaces
 {
-	public interface ICalculatorService
-	{
-		ECodigoOperacao CodigoOperacao { get; }
+    public interface ICalculatorService
+    {
+        ECodigoOperacao CodigoOperacao { get; }
 
-		decimal Execute(IRequestViewModel request);
-	}
+        decimal Execute(IRequestViewModel request);
+    }
 }

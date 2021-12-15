@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Calculadora.Notations
 {
-	 public class TitleToExport : ValidationAttribute
+    // Indentacion de las clases se deberia mejorar, ademas de que código comentado no se debería subir al master.
+    public class TitleToExport : ValidationAttribute
     {
         public readonly string Title;
 
@@ -12,11 +13,5 @@ namespace Calculadora.Notations
         public TitleToExport() { }
 
         public TitleToExport(string title) => Title = title;
-
-        // public TitleToExport(string title, Type formatType)
-        // {
-        //     Title = title;
-        //     FormatType = formatType;
-        // }
     }
 }

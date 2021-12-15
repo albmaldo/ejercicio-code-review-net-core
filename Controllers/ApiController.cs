@@ -25,7 +25,8 @@ namespace Calculadora.Controllers
         public ApiController(
             ILogger<ApiController> logger,
             IEnumerable<ICalculatorService> calculatorServices
-        ) {
+        )
+        {
             _calculatorServices = calculatorServices;
             _logger = logger;
         }
@@ -33,31 +34,41 @@ namespace Calculadora.Controllers
         [HttpGet]
         public IEnumerable<HistoricoBaseViewModel> Get() => historicoList;
 
+        /// <summary>
+        /// Ningún método tiene comentario. Adicional la línea 47 posee error. Adicional se debería estandarizar los nombres de todas las implementaciones.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Calcular([FromBody] RequestViewModel request)
         {
             var service = _calculatorServices.Where(c => c.CodigoOperacao == request.Operacao) ?? throw new ArgumentException("Service not found");
-
-            var response = service.Execute(request);
-
+            var response = 0;
+            //var response = service.Execute(request);
             var historico = new HistoricoBaseViewModel(request, response);
-
             _logger.LogInformation("history", historico);
-
             historicoList.Add(historico);
-
             return Ok(response);
         }
 
         [HttpGet]
         public FileResult Download()
         {
-            var fileName = $"Historico_{DateTime.Now.ToString("yyyyMMDD")}.csv";
-
-            return new FileContentResult(GetFile(), "text/csv")
+            // Manejo de excepciones inexistente.
+            try
             {
-                FileDownloadName = fileName
-            };
+                var fileName = $"Historico_{DateTime.Now.ToString("yyyyMMDD")}.csv";
+                return new FileContentResult(GetFile(), "text/csv")
+                {
+                    FileDownloadName = fileName
+                };
+            }
+            catch (Exception e)
+            {
+                // Aqui deberia retornar un mensaje de negocio, no el que se genera dada la excepcion. Además de guardar en el archivo plano o bdd.
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private static byte[] GetFile()
@@ -94,20 +105,22 @@ namespace Calculadora.Controllers
             return ((TitleToExport)field.GetCustomAttributes(typeof(TitleToExport), true).First());
         }
 
-
-     public static void fibonacci()  
-      {  
-         int n1=0,n2=1,n3,i,number;    
-         Console.Write("Enter the number of elements: ");    
-         number = int.Parse(Console.ReadLine());  
-         Console.Write(n1+" "+n2+" "); //printing 0 and 1    
-         for(i=2;i<number;++i) //loop starts from 2 because 0 and 1 are already printed    
-         {    
-          n3=n1+n2;    
-          Console.Write(n3+" ");    
-          n1=n2;    
-          n2=n3;    
-         }    
-      }  
+        /// <summary>
+        /// Los métodos deberían poseer un comentario al menos basico del uso de las entradas y sus salidas.
+        /// </summary>
+        public static void fibonacci()
+        {
+            int n1 = 0, n2 = 1, n3, i, number;
+            Console.Write("Enter the number of elements: ");
+            number = int.Parse(Console.ReadLine());
+            Console.Write(n1 + " " + n2 + " "); //printing 0 and 1    
+            for (i = 2; i < number; ++i) //loop starts from 2 because 0 and 1 are already printed    
+            {
+                n3 = n1 + n2;
+                Console.Write(n3 + " ");
+                n1 = n2;
+                n2 = n3;
+            }
+        }
     }
 }
